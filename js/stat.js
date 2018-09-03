@@ -40,8 +40,7 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillText('Список результатов:', CLOUD_X + GAP * 2, CLOUD_Y + GAP * 2 + FONT_GAP * 2);
 
   var maxTime = getMaxElement(times);
-  var opacity = getRandomNumber(1, 9);
-
+  
   for (var i = 0; i < players.length; i++) {
     var barHeight = BAR_HEIGHT / maxTime * Math.round(times[i]);
     var barX = CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i;
@@ -50,6 +49,7 @@ window.renderStatistics = function (ctx, players, times) {
     var timeY = CLOUD_Y + GAP * 3 + FONT_GAP * 3 + (BAR_HEIGHT - barHeight);
     var textX = barX;
     var textY = CLOUD_Y + GAP * 7 + FONT_GAP * 2 + BAR_HEIGHT;
+    var opacity = getRandomNumber(1, 9);
 
     ctx.fillText(Math.round(times[i]), timeX, timeY);
     ctx.fillStyle = 'rgba(0, 0, 255,' + opacity + ')';
