@@ -26,7 +26,7 @@ var getMaxElement = function (arr) {
 };
 
 var getRandomNumber = function (min, max) {
-  var number = (Math.floor(Math.random() * (max - min) + min)) * 0.1;
+  var number = Math.random() * (max - min) + min;
   return number;
 };
 
@@ -49,7 +49,7 @@ window.renderStatistics = function (ctx, players, times) {
     var timeY = CLOUD_Y + GAP * 3 + FONT_GAP * 3 + (BAR_HEIGHT - barHeight);
     var textX = barX;
     var textY = CLOUD_Y + GAP * 7 + FONT_GAP * 2 + BAR_HEIGHT;
-    var opacity = getRandomNumber(1, 9);
+    var opacity = getRandomNumber(0.1, 1);
 
     ctx.fillText(Math.round(times[i]), timeX, timeY);
     ctx.fillStyle = 'rgba(0, 0, 255,' + opacity + ')';
