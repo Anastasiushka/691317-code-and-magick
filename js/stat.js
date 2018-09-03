@@ -59,5 +59,5 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillRect(barX, barY, BAR_WIDTH, barHeight);
     ctx.fillStyle = 'black';
     ctx.fillText(players[i], textX, textY);
-    }
+  }
 };
