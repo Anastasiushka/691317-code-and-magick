@@ -40,7 +40,7 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillText('Список результатов:', CLOUD_X + GAP * 2, CLOUD_Y + GAP * 2 + FONT_GAP * 2);
 
   var maxTime = getMaxElement(times);
-  
+
   for (var i = 0; i < players.length; i++) {
     var barHeight = BAR_HEIGHT / maxTime * Math.round(times[i]);
     var barX = CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i;
