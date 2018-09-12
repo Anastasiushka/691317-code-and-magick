@@ -55,63 +55,62 @@ similarListElement.appendChild(fragment);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
 
-
-var onPopupEscPress = function(evt) {
+var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
 };
 
-var onSetupSubmitClick = function() {
+var onSetupSubmitClick = function () {
   wizardForm.submit();
 };
 
-var onSetupSubmitPress = function(evt) {
+var onSetupSubmitPress = function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
-      wizardForm.submit();
-    }
+    wizardForm.submit();
+  }
 };
 
-var openPopup = function() {
+var openPopup = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
   setupSubmit.addEventListener('click', onSetupSubmitClick);
   setupSubmit.addEventListener('keydown', onSetupSubmitPress);
 };
 
-var closePopup = function() {
+var closePopup = function () {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function() {
+setupOpen.addEventListener ('click', function() {
   openPopup();
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener ('keydown', function(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener ('click', function() {
   closePopup();
 });
 
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener ('keydown', function(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
-setupCoat.addEventListener('click', function() {
+setupCoat.addEventListener ('click', function() {
   setupWizard.querySelector('.wizard-coat').style.fill = COAT_COLORS[getRandomI(0, COAT_COLORS.length - 1)];
 });
 
-setupEyes.addEventListener('click', function() {
+setupEyes.addEventListener ('click', function() {
   setupWizard.querySelector('.wizard-eyes').style.fill = EYES_COLORS[getRandomI(0, EYES_COLORS.length - 1)];
 });
 
-setupFireball.addEventListener('click', function() {
+setupFireball.addEventListener ('click', function() {
   setupFireball.style.background = FIREBALL_COLORS[getRandomI(0, FIREBALL_COLORS.length - 1)];
 });
