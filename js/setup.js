@@ -122,5 +122,6 @@ setupFireball.addEventListener('click', function () {
 });
 
 setupUserName.addEventListener('change', function () {
-  setupUserName.checkValidity() === false ? setupSubmit.disabled = true : setupSubmit.disabled = false;
+  setupSubmit.disabled = !setupUserName.checkValidity();
 });
+
