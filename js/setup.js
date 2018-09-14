@@ -122,10 +122,5 @@ setupFireball.addEventListener('click', function () {
 });
 
 setupUserName.addEventListener('change', function () {
-  if (!setupUserName.checkValidity()) {
-    setupSubmit.disabled = true;
-  }
-  if (setupUserName.checkValidity()) {
-    setupSubmit.disabled = false;
-  }
+  setupUserName.checkValidity() === false ? setupSubmit.disabled = true : setupSubmit.disabled = false;
 });
