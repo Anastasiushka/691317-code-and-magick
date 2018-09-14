@@ -121,7 +121,7 @@ setupFireball.addEventListener('click', function () {
   setupFireball.style.background = setupPlayerElements[2].value;
 });
 
-setupUserName.addEventListener('change', function (evt) {
+setupUserName.addEventListener('change', function () {
   if (!setupUserName.checkValidity()) {
     setupSubmit.disabled = true;
   }
