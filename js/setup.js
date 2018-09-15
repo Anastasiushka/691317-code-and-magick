@@ -16,9 +16,9 @@
   var similarListElement = userDialog.querySelector('.setup-similar-list');
 
   window.random = {
-    getRandomI : function (min, max) {
-    var randomI = Math.floor(min + Math.random() * (max + 1 - min));
-    return randomI;
+    getRandomI: function (min, max) {
+      var randomI = Math.floor(min + Math.random() * (max + 1 - min));
+      return randomI;
     }
   };
 
