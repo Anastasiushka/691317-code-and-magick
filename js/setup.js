@@ -9,7 +9,7 @@
   window.EYES_COLORS = EYES_COLORS;
 
   var wizardsAmount = 4;
-  var wizards = [];
+  var matchingWizards = [];
   var userDialog = document.querySelector('.setup');
   userDialog.classList.remove('hidden');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
@@ -25,7 +25,7 @@
   };
 
   for (var i = 1; i <= wizardsAmount; i++) {
-    wizards.push({
+    matchingWizards.push({
       name: WIZARD_NAMES[window.random.getRandomI(0, WIZARD_NAMES.length - 1)] + WIZARD_SURNAMES[window.random.getRandomI(0, WIZARD_SURNAMES.length - 1)],
       coatColor: COAT_COLORS[window.random.getRandomI(0, COAT_COLORS.length - 1)],
       eyesColor: EYES_COLORS[window.random.getRandomI(0, EYES_COLORS.length - 1)]
@@ -39,27 +39,18 @@
     wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
     return wizardElement;
   };
-/*
-  var fragment = document.createDocumentFragment();
-  for (var j = 0; j < wizards.length; j++) {
-    fragment.appendChild(renderWizard(wizards[j]));
-  }
-  similarListElement.appendChild(fragment);
-
-  userDialog.querySelector('.setup-similar').classList.remove('hidden');
-  */
 
   var loadSuccessHandler = function (wizards) {
     var fragment = document.createDocumentFragment();
-    
+
     for (var j = 0; j < 4; j++) {
       fragment.appendChild(renderWizard(wizards[j]));
     }
     similarListElement.appendChild(fragment);
-    
+
     userDialog.querySelector('.setup-similar').classList.remove('hidden');
   };
-  
+
   var ErrorHandler = function (errorMessage) {
     var node = document.createElement('div');
     node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
@@ -67,19 +58,19 @@
     node.style.left = 0;
     node.style.right = 0;
     node.style.fontSize = '30px';
-    
-    node.textContent = errorMessage; 
+
+    node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
   };
-  
+
   window.backend.load(loadSuccessHandler, ErrorHandler);
 
   wizardForm.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(wizardForm), function (response) {
+    window.backend.save(new FormData(wizardForm), function () {
       userDialog.classList.add('hidden');
     },
     ErrorHandler
-  );
+    );
     evt.preventDefault();
   });
 
