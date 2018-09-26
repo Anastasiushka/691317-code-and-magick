@@ -11,7 +11,6 @@
   window.setupSubmit = setupSubmit;
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
-  var wizardForm = setup.querySelector('.setup-wizard-form');
   var setupDialogElement = document.querySelector('.setup');
   var dialogHandler = setupDialogElement.querySelector('.upload');
 
@@ -22,12 +21,12 @@
   };
 
   var onSetupSubmitClick = function () {
-    wizardForm.submit();
+    window.wizardForm.submit();
   };
 
   var onSetupSubmitPress = function (evt) {
     if (evt.keyCode === ENTER_KEYCODE) {
-      wizardForm.submit();
+      window.wizardForm.submit();
     }
   };
 
