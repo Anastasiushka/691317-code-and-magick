@@ -68,11 +68,11 @@
 
   wizardForm.addEventListener('submit', function (evt) {
     window.backend.save(
-      new FormData(wizardForm), 
-      function () {
-      userDialog.classList.add('hidden');
-      },
-      ErrorHandler
+        new FormData(wizardForm),
+        function () {
+          userDialog.classList.add('hidden');
+        },
+        ErrorHandler
     );
     evt.preventDefault();
   });
