@@ -16,7 +16,6 @@
   var wizardForm = document.querySelector('.setup-wizard-form');
   window.wizardForm = wizardForm;
   var userDialog = document.querySelector('.setup');
-  userDialog.classList.remove('hidden');
 
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE) {
