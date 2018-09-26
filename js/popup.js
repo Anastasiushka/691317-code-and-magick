@@ -13,6 +13,10 @@
   var setupClose = setup.querySelector('.setup-close');
   var setupDialogElement = document.querySelector('.setup');
   var dialogHandler = setupDialogElement.querySelector('.upload');
+  var wizardForm = document.querySelector('.setup-wizard-form');
+  window.wizardForm = wizardForm;
+  var userDialog = document.querySelector('.setup');
+  userDialog.classList.remove('hidden');
 
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE) {
@@ -116,4 +120,27 @@
   };
 
   dialogHandler.addEventListener('mousedown', onDialogHandlerMouseDown);
+
+  var errorHandler = function (errorMessage) {
+    var node = document.createElement('div');
+    node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    node.style.position = 'absolute';
+    node.style.left = 0;
+    node.style.right = 0;
+    node.style.fontSize = '30px';
+
+    node.textContent = errorMessage;
+    document.body.insertAdjacentElement('afterbegin', node);
+  };
+
+  wizardForm.addEventListener('submit', function (evt) {
+    window.backend.save(
+        new FormData(wizardForm),
+        function () {
+          userDialog.classList.add('hidden');
+        },
+        errorHandler
+    );
+    evt.preventDefault();
+  });
 })();
